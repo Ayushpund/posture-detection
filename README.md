@@ -1,128 +1,125 @@
-Posture Monitoring IoT System
-Project Overview
+# 🧍‍♂️ Posture Monitoring IoT System
 
-This project is an IoT-based posture monitoring system designed to track and improve spinal posture. It combines sensors, a microcontroller, cloud services, and mobile/web applications to provide real-time feedback, notifications, and posture trend visualization.
 
-Hardware Components
 
-ESP32 Microcontroller – Dual-core Tensilica LX6, 240 MHz, built-in Wi-Fi and Bluetooth, 4 MB flash.
+## 📌 Project Overview
 
-MPU6050 Sensor – 6-axis motion tracking (3-axis accelerometer + 3-axis gyroscope).
+The **Posture Monitoring IoT System** is an integrated solution designed to track and improve spinal posture. Combining sensors, a microcontroller, cloud services, and mobile/web applications, it provides real-time feedback, notifications, and posture trend visualizations.
 
-Flex Sensors – Variable resistors to measure spinal bending and curvature.
+---
 
-Actuators – Vibration motor for tactile feedback and piezoelectric buzzer for auditory alerts.
+## 🛠️ Hardware Components
 
-Power Supply – Rechargeable 5V–12V Li-ion battery with stable current output.
+- **ESP32 Microcontroller**: Dual-core Tensilica LX6, 240 MHz, built-in Wi-Fi and Bluetooth, 4 MB flash.
+- **MPU6050 Sensor**: 6-axis motion tracking (3-axis accelerometer + 3-axis gyroscope).
+- **Flex Sensors**: Variable resistors to measure spinal bending and curvature.
+- **Actuators**: Vibration motor for tactile feedback and piezoelectric buzzer for auditory alerts.
+- **Power Supply**: Rechargeable 5V–12V Li-ion battery with stable current output.
 
-Firmware & Embedded Tools
+---
 
-Arduino IDE – Development of ESP32 firmware in Embedded C/C++.
+## 💻 Firmware & Embedded Tools
 
-Proteus – Circuit design and simulation of sensor-actuator system.
+- **Arduino IDE**: Development of ESP32 firmware in Embedded C/C++.
+- **Proteus**: Circuit design and simulation of sensor-actuator system.
+- **I²C Protocol**: For MPU6050 sensor data communication with ESP32.
+- **UART Protocol**: For serial debugging and monitoring.
+- **Wi-Fi (802.11 b/g/n)**: For IoT connectivity to Firebase cloud.
+- **Logic Analyzer & Oscilloscope**: For debugging and timing verification.
 
-I²C Protocol – For MPU6050 sensor data communication with ESP32.
+---
 
-UART Protocol – For serial debugging and monitoring.
+## ☁️ Software Stack (Cloud + App + Web)
 
-Wi-Fi (802.11 b/g/n) – For IoT connectivity to Firebase cloud.
+### IoT Cloud Layer
 
-Logic Analyzer & Oscilloscope – For debugging and timing verification.
+- Firebase Realtime Database – posture data logging
+- Firebase Authentication – secure login
+- Firebase Cloud Messaging (FCM) – push notifications
 
-Software Stack
-IoT Cloud Layer
+### Mobile Application Layer (Kotlin App)
 
-Firebase Realtime Database – For posture data logging and synchronization.
+- Kotlin (Android Native) – core app development
+- Firebase SDK – real-time posture updates
+- Graph Libraries – visualize posture trends
+- Material UI Components – clean and ergonomic UI
 
-Firebase Authentication – Secure user login and app data access.
+### Web Dashboard Layer (Next.js App)
 
-Firebase Cloud Messaging (FCM) – Push notifications for prolonged bad posture alerts.
+- Next.js (React Framework) – responsive web dashboard
+- Tailwind CSS / Material UI – modern UI design
+- Firebase SDK (Web) – fetch and display posture history
+- Recharts / Chart.js – interactive posture graphs
+- Authentication Integration – sync with mobile app login
 
-Mobile Application Layer (Kotlin App)
+---
 
-Kotlin (Android Native) – Core app development language.
+## 🚀 Getting Started
 
-Firebase SDK – Real-time posture updates from ESP32.
+### Hardware Setup
 
-Graph Libraries – For daily/weekly posture trend visualization.
+1. **Sensor Connections**:
+   - Connect the **MPU6050** to the **ESP32** via the I²C interface.
+   - Attach **flex sensors** to analog input pins on the ESP32.
+   - Connect the **vibration motor** and **piezo buzzer** to digital output pins.
 
-Material UI Components – Clean and ergonomic UI/UX.
+2. **Power Supply**:
+   - Use a **5V–12V Li-ion battery** to power the system.
 
-Web Dashboard Layer (Next.js App)
+### Firmware Development
 
-Next.js (React Framework) – For responsive posture monitoring dashboard.
+1. **Arduino IDE Setup**:
+   - Install the **Arduino IDE** and configure it for **ESP32** development.
+   - Load the provided firmware onto the ESP32.
 
-Tailwind CSS / Material UI – For modern and minimal front-end design.
+2. **Wi-Fi Configuration**:
+   - Set up the Wi-Fi credentials in the firmware for Firebase connectivity.
 
-Firebase SDK (Web) – To fetch and display posture history.
+3. **Sensor Calibration**:
+   - Calibrate the **MPU6050** and **flex sensors** for accurate data readings.
 
-Recharts / Chart.js – Interactive posture trend graphs.
+### Mobile Application (Kotlin)
 
-Authentication Integration – Sync with Firebase login used by mobile app.
+1. **Project Setup**:
+   - Open the Kotlin project in **Android Studio**.
 
-Features
+2. **Firebase Integration**:
+   - Configure the **Firebase SDK** with your project credentials.
 
-Real-time posture monitoring using MPU6050 and flex sensors.
+3. **App Development**:
+   - Implement features for real-time posture monitoring and feedback.
 
-Tactile and auditory feedback for incorrect posture.
+4. **UI/UX Design**:
+   - Design a user-friendly interface using **Material UI Components**.
 
-Cloud storage of posture data for historical tracking.
+### Web Dashboard (Next.js)
 
-Mobile app with visualized posture trends and notifications.
+1. **Project Initialization**:
+   - Clone the repository and navigate to the project directory.
 
-Web dashboard for remote posture analysis.
+2. **Dependency Installation**:
+   - Run `npm install` to install necessary dependencies.
 
-Getting Started
-Hardware Setup
+3. **Firebase Configuration**:
+   - Set up the **Firebase SDK** with your project credentials.
 
-Connect ESP32 with MPU6050 sensor via I²C.
+4. **Dashboard Development**:
+   - Develop features for viewing posture trends and history.
 
-Connect flex sensors to analog input pins on ESP32.
+---
 
-Connect vibration motor and piezo buzzer to digital output pins.
+## 🧪 Tools & Technologies Used
 
-Power the system using a rechargeable 5V–12V Li-ion battery.
+- **Microcontroller**: ESP32
+- **Sensors**: MPU6050, Flex Sensors
+- **Actuators**: Vibration Motor, Piezo Buzzer
+- **Firmware**: Arduino IDE, I²C, UART
+- **Cloud**: Firebase Realtime DB, Authentication, FCM
+- **Mobile App**: Kotlin, Firebase SDK, Material UI
+- **Web App**: Next.js, Tailwind CSS, Recharts/Chart.js
 
-Firmware Setup
+---
 
-Install Arduino IDE and ESP32 board support.
+## 📄 License
 
-Load the provided firmware onto the ESP32.
-
-Configure Wi-Fi credentials in the code for Firebase connectivity.
-
-Monitor sensor data via Serial Monitor or Logic Analyzer.
-
-Mobile App Setup
-
-Open the Kotlin Android project in Android Studio.
-
-Configure Firebase SDK with your project credentials.
-
-Build and install the app on your Android device.
-
-Web Dashboard Setup
-
-Open the Next.js project.
-
-Install dependencies using npm install.
-
-Configure Firebase SDK with the same project credentials as the mobile app.
-
-Run the dashboard using npm run dev.
-
-Tools & Technologies Used
-
-Microcontroller: ESP32
-
-Sensors: MPU6050, Flex Sensors
-
-Actuators: Vibration motor, Piezo buzzer
-
-Firmware: Arduino IDE, I²C, UART
-
-Cloud: Firebase Realtime Database, Authentication, FCM
-
-Mobile App: Kotlin, Firebase SDK, Material UI
-
-Web App: Next.js, Tailwind CSS, Recharts/Chart.js
+This project is licensed under the **MIT License**.
