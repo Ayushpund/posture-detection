@@ -1,4 +1,4 @@
-import PostureStatus from '@/components/dashboard/posture-status';
+import PostureAnatomy from '@/components/dashboard/posture-anatomy';
 import SensorData from '@/components/dashboard/sensor-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lightbulb } from 'lucide-react';
@@ -14,7 +14,7 @@ export default function DashboardPage() {
       </div>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <PostureStatus />
+          <PostureAnatomy />
         </div>
         <div className="space-y-6">
           <SensorData sensorType="pitch" />
