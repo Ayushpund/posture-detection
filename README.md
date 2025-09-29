@@ -120,6 +120,3 @@ The **Posture Monitoring IoT System** is an integrated solution designed to trac
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License**.
