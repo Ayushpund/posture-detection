@@ -2,19 +2,12 @@
 
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
-import { loginSchema, settingsSchema } from '@/lib/schemas';
+import { settingsSchema } from '@/lib/schemas';
 import { saveThresholdSettings } from '@/ai/flows/threshold-setting-saver';
 import { generatePostureTips } from '@/ai/flows/personalized-posture-tips';
+import { generateExerciseVideo } from '@/ai/flows/exercise-video-generator';
 
 export async function login(formData: FormData) {
-  try {
-    const data = Object.fromEntries(formData);
-    const parsed = loginSchema.parse(data);
-    console.log('Logging in user:', parsed.email);
-  } catch (error) {
-    // In a real app, handle validation errors
-    console.error(error);
-  }
   redirect('/dashboard');
 }
 
@@ -70,4 +63,15 @@ export async function getPersonalizedPostureTips() {
     const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
     return { success: false, error: `Failed to generate tips: ${errorMessage}` };
   }
+}
+
+export async function getExerciseVideo(exercise: string, focusArea: string) {
+    try {
+        const result = await generateExerciseVideo({exercise, focusArea});
+        return { success: true, videoUrl: result.videoUrl };
+    } catch (error) {
+        console.error(error);
+        const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+        return { success: false, error: `Failed to generate video: ${errorMessage}` };
+    }
 }

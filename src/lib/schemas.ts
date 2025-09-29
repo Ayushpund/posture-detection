@@ -1,10 +1,5 @@
 import { z } from 'zod';
 
-export const loginSchema = z.object({
-  email: z.string().email('Invalid email address'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
-});
-
 export const settingsSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   age: z.coerce.number().min(1, 'Age is required').max(120),

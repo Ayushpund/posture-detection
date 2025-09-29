@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import PostureChart from '@/components/analytics/posture-chart';
 import PostureSummary from '@/components/analytics/posture-summary';
 import PersonalizedTips from '@/components/analytics/personalized-tips';
+import ExerciseVideoGenerator from '@/components/analytics/exercise-video-generator';
 
 export default function AnalyticsPage() {
   return (
@@ -29,7 +30,10 @@ export default function AnalyticsPage() {
           <PostureChart timeRange="monthly" />
         </TabsContent>
       </Tabs>
-      <PersonalizedTips />
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <PersonalizedTips />
+        <ExerciseVideoGenerator />
+      </div>
     </div>
   );
 }
